@@ -1,5 +1,3 @@
-print('starting to load data')
-
 from sklearn import model_selection, preprocessing, linear_model
 from sklearn.feature_extraction.text import TfidfVectorizer
 import sys, warnings
@@ -12,7 +10,6 @@ warnings.filterwarnings("ignore")
 # load the dataset
 trainDF = pd.read_excel('{}/test_task_DS.xlsx'.format(__location__), header=0)
 
-print('data preprocessing')
 #combine with product name and category
 trainDF['text'] = trainDF[['description'
                              ,'initcat'
@@ -34,7 +31,6 @@ encoder = preprocessing.LabelEncoder()
 train_y = encoder.fit_transform(train_y)
 valid_y = encoder.fit_transform(valid_y)
 
-print('tf-idf matrix')
 # ngram level tf-idf
 tfidf_vect_ngram = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}',
                                    ngram_range=(2,3),
@@ -44,7 +40,6 @@ tfidf_vect_ngram.fit(trainDF['text'])
 xtrain_tfidf_ngram = tfidf_vect_ngram.transform(train_x.text)
 xvalid_tfidf_ngram = tfidf_vect_ngram.transform(valid_x.text)
 
-print('running classifier')
 #define LogisticRegression classifier with predefined parameters
 def lgr_pred(slvr, feature_vector_train, train_y, feature_vector_valid, valid_y):
 
@@ -78,7 +73,6 @@ valid_x['probability'] = pred[1]
 #union the train and validative df-s
 final = pd.concat([train_x, valid_x])
 
-print('loading results to excel')
 #load data to excel
 final[['case_size'
        ,'id'
@@ -90,5 +84,3 @@ final[['case_size'
        ,'probability']].to_excel("{}/test_task_DS_processed.xlsx".format(__location__)
                                  ,sheet_name='Sheet1'
                                  ,index=False)
-
-print('complete')
