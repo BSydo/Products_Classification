@@ -1,0 +1,13 @@
+
+Given the dataset, create the best classification model to classify products according to product categories (y=our_cat). Create prediction outputin pandas dataframe in form 
+
+case_size
+id
+pack_desc
+wholesale_price
+description
+prediction
+prediction score (probability of correct prediction)
+
+
+Do a clear and commented code. Provide a project with description and requirements.txt file. Do everything in python 3
