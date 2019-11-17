@@ -2,7 +2,7 @@ Classification of products by given categories
 done in Python 3.7
 
 *Getting Started*
-Replace the Initial source file with one that have the name and format and run /DataObrii_test_task.py
+Replace the Initial source file with one that have the name and format and run /test_task.py
 Initial source file: /test_task_DS.xlsx
 
 *Prerequisites*
