@@ -1,4 +1,3 @@
-*DataObrii test task*
 Classification of products by given categories
 done in Python 3.7
 
